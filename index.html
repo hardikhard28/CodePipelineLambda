@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API GET Request</title>
+</head>
+<body>
+
+<button id="fetchButton">Fetch Data</button>
+
+<script>
+document.getElementById("fetchButton").addEventListener("click", fetchData);
+
+function fetchData() {
+  fetch('https://mogo5x8o7f.execute-api.us-east-1.amazonaws.com/beta') // Replace 'https://api.example.com/data' with your API endpoint
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data); // You can process the API response data here
+    })
+    .catch(error => {
+      console.error('There was a problem with your fetch operation:', error);
+    });
+}
+</script>
+
+</body>
+</html>
